@@ -1,0 +1,168 @@
+.insurance-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  margin-bottom: 16px;
+  max-width: 100%;
+  width: 100%;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.insurance-card:hover {
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+}
+
+.card-header-text {
+  flex-grow: 1;
+}
+
+.brand-name a {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1f2937;
+  text-decoration: none;
+}
+
+.brand-name a:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.policy-description {
+  font-size: 0.9rem;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+.card-body {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  align-items: center;
+}
+
+.claim-settlement {
+  grid-column: 1 / span 2;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.cashless-hospitals,
+.coverage {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.value {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #111827;
+}
+
+.premium {
+  text-align: right;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #dc2626;
+}
+
+.annual-premium {
+  display: block;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.view-details-button {
+  background-color: cadetblue;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  margin-left: 50px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.view-details-button:hover {
+  background-color: #1e3a8a;
+  transform: translateY(-2px);
+}
+
+.view-details-button:active {
+  background-color: #1e40af;
+  transform: translateY(0);
+}
+
+.view-details-button:focus {
+  outline: none;
+  box-shadow: 0px 0px 4px 2px rgba(37, 99, 235, 0.6);
+}
+
+@media (max-width: 768px) {
+  .card-body {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .claim-settlement {
+    grid-column: 1 / span 2;
+  }
+
+  .premium,
+  .annual-premium {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .insurance-card {
+    padding: 16px;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .brand-name a {
+    font-size: 1rem;
+  }
+
+  .policy-description {
+    font-size: 0.8rem;
+  }
+
+  .card-body {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .premium,
+  .annual-premium {
+    font-size: 1rem;
+  }
+}

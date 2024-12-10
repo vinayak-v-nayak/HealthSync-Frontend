@@ -1,0 +1,117 @@
+.feedback-container {
+  max-width: 500px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #ece9e6, #ffffff);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin-top: 130px;
+}
+
+.feedback-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.feedback-form .form-group {
+  margin-bottom: 15px;
+}
+
+.feedback-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.rating {
+  display: flex;
+  gap: 10px;
+}
+
+.star {
+  font-size: 2rem;
+  color: #ddd;
+  cursor: pointer;
+}
+
+.star.filled {
+  color: #f0a500;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-button:hover {
+  background: #0056b3;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .feedback-container {
+    margin-top: 70px;
+    padding: 20px;
+  }
+
+  .feedback-title {
+    font-size: 2rem;
+  }
+
+  .feedback-input {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+
+  .star {
+    font-size: 1.5rem;
+  }
+
+  .submit-button {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .feedback-container {
+    margin-top: 120px;
+    padding: 15px;
+  }
+
+  .feedback-title {
+    font-size: 1.8rem;
+  }
+
+  .feedback-input {
+    font-size: 0.85rem;
+    padding: 6px;
+  }
+
+  .star {
+    font-size: 1.3rem;
+  }
+
+  .submit-button {
+    padding: 6px;
+    font-size: 0.85rem;
+  }
+}
