@@ -16,6 +16,9 @@
   width: 100%;
   max-width: 500px;
 }
+.form-card .step-3{
+  margin-top: -150px;
+}
 
 /* Form title */
 .form-title {

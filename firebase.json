@@ -1,7 +1,7 @@
 {
   "hosting": {
     "source": ".",
-    "site": "healthsyncapp",
+    "site": "healthsync-21a49",
     "ignore": [
       "firebase.json",
       "**/.*",

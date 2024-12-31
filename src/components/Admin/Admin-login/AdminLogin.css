@@ -1,0 +1,89 @@
+/* AdminLogin.css */
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #1abc9c, #16a085); /* Gradient background */
+  }
+  
+  .login-form {
+    background-color: #ffffff; /* White background */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  .login-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #2c3e50; /* Dark blue-gray color */
+  }
+  
+  .form-group {
+    margin-bottom: 25px;
+    text-align: left;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #34495e; /* Darker gray for labels */
+  }
+  
+  input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #dcdde1; /* Light border */
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #1abc9c; /* Highlighted border */
+    box-shadow: 0 0 8px rgba(26, 188, 156, 0.5);
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #1abc9c, #16a085); /* Gradient button */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .login-button:hover {
+    background: linear-gradient(135deg, #16a085, #1abc9c); /* Hover effect */
+    transform: scale(1.05);
+  }
+  
+  .login-button:active {
+    transform: scale(1);
+  }
+  
+  @media (max-width: 480px) {
+    .login-form {
+      padding: 20px;
+    }
+  
+    .login-title {
+      font-size: 1.5rem;
+    }
+  }
+  

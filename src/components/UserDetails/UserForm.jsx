@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./UserForm.css";
-const baseUrl = "https://healthsync-backend.onrender.com";
+
+const baseUrl = 'https://healthsync-backend.onrender.com';
 
 const UserForm = () => {
   const [step, setStep] = useState(1);
@@ -12,7 +13,7 @@ const UserForm = () => {
     age: "",
     height: "",
     weight: "",
-    salary:"",
+    salary: "",
     diabetes: false,
     bloodPressureProblems: false,
     anyTransplants: false,
@@ -21,11 +22,44 @@ const UserForm = () => {
     historyOfCancerInFamily: false,
     numberOfMajorSurgeries: "" || 0,
   });
-
+  const [loading, setLoading] = useState(true); // For initial loading state
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const token = Cookies.get("token");
+      const userId = Cookies.get("user");
+
+      if (!token) {
+        alert("User is not authenticated.");
+        navigate("/login");
+        return;
+      }
+
+      try {
+        const response = await axios.get(`${baseUrl}/api/user/get-data`, {
+          headers: { Authorization: `Bearer ${token}` },
+          params: { userId },
+        });
+
+        if (response.status === 200 && response.data) {
+          setFormData(response.data); // Populate the form with fetched data
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      } finally {
+        setLoading(false); // Stop the loading state
+      }
+    };
+
+    fetchUserData();
+  }, [navigate]);
+
   const handleNext = () => {
-    if (step === 1 && (!formData.gender || !formData.age || !formData.height || !formData.weight || !formData.salary)) {
+    if (
+      step === 1 &&
+      (!formData.gender || !formData.age || !formData.height || !formData.weight || !formData.salary)
+    ) {
       alert("Please fill out all the required fields.");
       return;
     }
@@ -42,7 +76,6 @@ const UserForm = () => {
       alert("User is not authenticated.");
       return;
     }
-    
 
     try {
       const response = await axios.post(
@@ -70,6 +103,10 @@ const UserForm = () => {
       [name]: type === "checkbox" ? checked : value,
     }));
   };
+
+  if (loading) {
+    return <div>Loading...</div>; // Render a loading spinner or message
+  }
 
   return (
     <div className="form-container">
@@ -252,7 +289,7 @@ const UserForm = () => {
 
         {/* Step 3: Confirmation */}
         {step === 3 && (
-          <div className="form-step">
+          <div className="form-step" >
             <p>You're all set! Click Submit to complete your health profile.</p>
             <div className="button-group">
               <button onClick={handleBack} className="btn btn-secondary">
@@ -260,7 +297,7 @@ const UserForm = () => {
               </button>
               <button onClick={handleSubmit} className="btn btn-primary">
                 Submit
-              </button>
+              </button> 
             </div>
           </div>
         )}
